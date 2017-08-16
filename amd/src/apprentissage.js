@@ -63,7 +63,6 @@
                 point--;
             }
             if (point==0) {point=4;}
-            console.log("point :"+point);
             var numero;
             numero=$(mot).attr("id").substr(6,2); // Numéro du mot.
             $("#cmapoint"+numero).html(point);// Affiche les points pour le mot.
@@ -78,7 +77,6 @@
             var nb = getWordsAssigned(serie);
             if (nb ==4) {
                 var doublon = getDoublon(serie);
-                console.log('doublon : '+doublon);
                 if (doublon  == 0) {
                     $("a[data-role='continue']").show();
                 } else {

@@ -31,21 +31,18 @@ use templatable;
 use renderer_base;
 use stdClass;
 
-//require_once($CFG->dirroot . '/blocks/lp_result/locallib.php');
-
 class cmatest implements \renderable, \templatable {
 
     public function export_for_template(\renderer_base $output) {
-        global $data,$PAGE;
+        global $data, $PAGE;
         // Get fields for thead, we don't want planname and scaleid.
         if (!isset($data)) {
             $data = new StdClass();
         }
         $words = $this->get_words();
-        for ($p = 0; $p <=8; $p++)
-        {
-            $i = $p+1;
-            $data->pages[$p] = array('pagenum' => $i, 'pagesuiv' => $i+1, 'mot1' => $words[$i*4-3], 'mot2' => $words[$i*4-2], 'mot3' => $words[$i*4-1], 'mot4' => $words[$i*4], 'idmot1' => $i*4-3, 'idmot2' => $i*4-2, 'idmot3' => $i*4-1, 'idmot4' => $i*4);
+        for ($p = 0; $p <= 8; $p++) {
+            $i = $p + 1;
+            $data->pages[$p] = array('pagenum' => $i, 'pagesuiv' => $i + 1, 'mot1' => $words[$i * 4 - 3], 'mot2' => $words[$i * 4 - 2], 'mot3' => $words[$i * 4 - 1], 'mot4' => $words[$i * 4], 'idmot1' => $i * 4 - 3, 'idmot2' => $i * 4 - 2, 'idmot3' => $i * 4 - 1, 'idmot4' => $i * 4);
         }
         $actionurl = new \moodle_url('/mod/cma/view.php', array('id' => $PAGE->cm->id));
         $data->actionurl = $actionurl;

@@ -37,19 +37,19 @@ class cmaresult implements \renderable, \templatable {
 
 
 
-   public function __construct($result) {
+    public function __construct($result) {
         $this->result = $result;
     }
 
     public function export_for_template(\renderer_base $output) {
-        global $data,$PAGE;
+        global $data, $PAGE;
         // Get fields for thead, we don't want planname and scaleid.
         if (!isset($data)) {
             $data = new StdClass();
         }
         $data = $this->result;
         $data->typekey = $data->type; // L'identifiant dans get_string pour le type de profil.
-        $data->type = get_string($data->type,'mod_cma');
+        $data->type = get_string($data->type, 'mod_cma');
         $temp[0] = new StdClass();
         $temp[1] = new StdClass();
         $temp[2] = new StdClass();
@@ -63,11 +63,9 @@ class cmaresult implements \renderable, \templatable {
         $temp[3]->chartdata = $this->create_chart_types('course');
         $temp[3]->uniqid = uniqid();
         $data->charts = $temp;
-        //$data->chartdata = $cmachartall;
-        //$data->chartdata = $cmachartcourse;
         $data->withtable = false;
         $testurl = new \moodle_url('/mod/cma/view.php', array('id' => $PAGE->cm->id, 'test' => '1'));
-        $data->testurl = $testurl;//var_dump($data->charts);exit;
+        $data->testurl = $testurl;
         return $data;
     }
 
@@ -93,24 +91,22 @@ class cmaresult implements \renderable, \templatable {
         $chart->add_series($serietotal);
         $chart->set_labels($labels);
         $chart->set_title($title);
-        //var_dump($chart);exit;
-        //$cmachart = $OUTPUT->render($chart);
         $chartdata = json_encode($chart);
         return $chartdata;
     }
 
-    function get_average() {
-    global $DB;
-    $ec = $DB->get_record_sql('SELECT AVG(ec) AS ec FROM {cma_points}');
-    $obr = $DB->get_record_sql('SELECT AVG(obr) AS obr FROM {cma_points}');
-    $ca = $DB->get_record_sql('SELECT AVG(ca) AS ca FROM {cma_points}');
-    $ea = $DB->get_record_sql('SELECT AVG(ea) AS ea FROM {cma_points}');
-    $all = get_string('all', 'mod_cma');
-    $serietotal = new \core\chart_series($all, [$ec->ec, $obr->obr, $ca->ca, $ea->ea]);
-    return $serietotal;
+    protected function get_average() {
+        global $DB;
+        $ec = $DB->get_record_sql('SELECT AVG(ec) AS ec FROM {cma_points}');
+        $obr = $DB->get_record_sql('SELECT AVG(obr) AS obr FROM {cma_points}');
+        $ca = $DB->get_record_sql('SELECT AVG(ca) AS ca FROM {cma_points}');
+        $ea = $DB->get_record_sql('SELECT AVG(ea) AS ea FROM {cma_points}');
+        $all = get_string('all', 'mod_cma');
+        $serietotal = new \core\chart_series($all, [$ec->ec, $obr->obr, $ca->ca, $ea->ea]);
+        return $serietotal;
     }
 
-    function get_course_average() {
+    protected function get_course_average() {
             global $DB;
             $users = cma_get_users();
             $usersid = cma_get_users_id($users);
@@ -128,7 +124,7 @@ class cmaresult implements \renderable, \templatable {
             return $serietotal;
     }
 
-    public function create_chart_types($who) {
+    protected function create_chart_types($who) {
         global $OUTPUT;
         $chart = new \core\chart_bar();
         $serietotal = $this->get_types($who);
@@ -146,12 +142,11 @@ class cmaresult implements \renderable, \templatable {
         $chart->add_series($serietotal);
         $chart->set_labels($labels);
         $chart->set_title($title);
-        //var_dump($chart);exit;
         $chartdata = json_encode($chart);
         return $chartdata;
     }
 
-    function get_types($who) {
+    protected function get_types($who) {
         global $DB;
         if ($who == 'all') {
             $users = cma_get_users();
@@ -173,7 +168,7 @@ class cmaresult implements \renderable, \templatable {
         foreach ($result as $key => $value) {
                 $nbtype->$key = $value->nbtype;
         }
-        $serietotal = new \core\chart_series($title, [$nbtype->accomodateur, $nbtype->assimilateur,$nbtype->convergent, $nbtype->divergent]);
+        $serietotal = new \core\chart_series($title, [$nbtype->accomodateur, $nbtype->assimilateur, $nbtype->convergent, $nbtype->divergent]);
         return $serietotal;
     }
 }

@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -32,13 +31,13 @@ require_once($CFG->libdir.'/filelib.php');
 class mod_cma_mod_form extends moodleform_mod {
     public static $datefieldoptions = array('optional' => true, 'step' => 1);
 
-    function definition() {
-        global $CFG, $DB;
+    public function definition() {
+        global $CFG;
 
         $mform = $this->_form;
 
         $mform->addElement('header', 'general', get_string('general', 'form'));
-        $mform->addElement('text', 'name', get_string('name'), array('size'=>'48'));
+        $mform->addElement('text', 'name', get_string('name'), array('size' => '48'));
         if (!empty($CFG->formatstringstriptags)) {
             $mform->setType('name', PARAM_TEXT);
         } else {
@@ -66,24 +65,24 @@ class mod_cma_mod_form extends moodleform_mod {
 
     public function add_completion_rules() {
 
-    $mform = $this->_form;
-    $mform->createElement('checkbox', 'completionplayedenabled', '', get_string('completionplayed', 'mod_cma'));
-    $mform->setDefault('completionplayedenabled', 1);
-    return array('completionplayedenabled');
-}
+        $mform = $this->_form;
+        $mform->createElement('checkbox', 'completionplayedenabled', '', get_string('completionplayed', 'mod_cma'));
+        $mform->setDefault('completionplayedenabled', 1);
+        return array('completionplayedenabled');
+    }
 
-/**
- * Called during validation to see whether some module-specific completion rules are selected.
- *
- * @param array $data Input data not yet validated.
- * @return bool True if one or more rules is enabled, false if none are.
- */
-public function completion_rule_enabled($data) {
-    return !empty($data['completionplayedenabled']);
-}
+    /**
+     * Called during validation to see whether some module-specific completion rules are selected.
+     *
+     * @param array $data Input data not yet validated.
+     * @return bool True if one or more rules is enabled, false if none are.
+     */
+    public function completion_rule_enabled($data) {
+        return !empty($data['completionplayedenabled']);
+    }
 
-   public function data_preprocessing(&$default_values) {
-        $default_values['completionplayedenabled'] = 0;
+    public function data_preprocessing(&$defaultvalues) {
+        $defaultvalues['completionplayedenabled'] = 0;
     }
 
 }

@@ -79,9 +79,6 @@ class cma_test_played extends \core\event\base {
      * @throws \coding_exception
      * @return void
      */
-    protected function validate_data() {
-        parent::validate_data();
-        }
 
     public static function get_objectid_mapping() {
         return array('db' => 'cma_points', 'restore' => 'cma_points');

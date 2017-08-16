@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -37,13 +36,11 @@ function cma_add_instance($data, $mform = null) {
 
     $data->timemodified = time();
     $data->timecreated = time();
-    $displayoptions = array();
 
     $data->id = $DB->insert_record('cma', $data);
 
-    // we need to use context now, so we need to make sure all needed info is already in db
-    $DB->set_field('course_modules', 'instance', $data->id, array('id'=>$cmid));
-    $context = context_module::instance($cmid);
+    // We need to use context now, so we need to make sure all needed info is already in db.
+    $DB->set_field('course_modules', 'instance', $data->id, array('id' => $cmid));
 
     $completiontimeexpected = !empty($data->completionexpected) ? $data->completionexpected : null;
     \core_completion\api::update_completion_date_event($cmid, 'cma', $data->id, $completiontimeexpected);
@@ -58,14 +55,14 @@ function cma_add_instance($data, $mform = null) {
 function cma_delete_instance($id) {
     global $DB;
 
-    if (!$cma = $DB->get_record('cma', array('id'=>$id))) {
+    if (!$cma = $DB->get_record('cma', array('id' => $id))) {
         return false;
     }
 
     $cm = get_coursemodule_from_instance('cma', $id);
     \core_completion\api::update_completion_date_event($cm->id, 'cma', $id, null);
 
-    $DB->delete_records('cma', array('id'=>$cma->id));
+    $DB->delete_records('cma', array('id' => $cma->id));
     return true;
 }
 
@@ -77,15 +74,24 @@ function cma_delete_instance($id) {
 
 function cma_supports($feature) {
     switch($feature) {
-        case FEATURE_GROUPS:                                         return false;
-        case FEATURE_GROUPINGS:                                  return false;
-        case FEATURE_MOD_INTRO:                                   return true;
-        case FEATURE_COMPLETION_TRACKS_VIEWS:  return true;
-        case FEATURE_COMPLETION_HAS_RULES:         return true;
-        case FEATURE_GRADE_HAS_GRADE:                   return false;
-        case FEATURE_GRADE_OUTCOMES:                    return false;
-        case FEATURE_BACKUP_MOODLE2:                     return false;
-        case FEATURE_SHOW_DESCRIPTION:                  return true;
+        case FEATURE_GROUPS:
+            return false;
+        case FEATURE_GROUPINGS:
+            return false;
+        case FEATURE_MOD_INTRO:
+            return true;
+        case FEATURE_COMPLETION_TRACKS_VIEWS:
+            return true;
+        case FEATURE_COMPLETION_HAS_RULES:
+            return true;
+        case FEATURE_GRADE_HAS_GRADE:
+            return false;
+        case FEATURE_GRADE_OUTCOMES:
+            return false;
+        case FEATURE_BACKUP_MOODLE2:
+            return false;
+        case FEATURE_SHOW_DESCRIPTION:
+            return true;
 
         default: return null;
     }
@@ -119,7 +125,7 @@ function cma_reset_userdata($data) {
  * @return array
  */
 function cma_get_view_actions() {
-    return array('view','view all');
+    return array('view', 'view all');
 }
 
 /**
@@ -176,9 +182,9 @@ function cma_get_coursemodule_info($coursemodule) {
     global $CFG, $DB;
     require_once("$CFG->libdir/resourcelib.php");
 
-    if (!$cma = $DB->get_record('cma', array('id'=>$coursemodule->instance),
+    if (!$cma = $DB->get_record('cma', array('id' => $coursemodule->instance),
             'id, name, intro, introformat, previous, timeopen, timeclose, activity')) {
-        return NULL;
+        return null;
     }
 
     $info = new cached_cm_info();
@@ -215,7 +221,7 @@ function cma_view($cma, $course, $cm, $context) {
     $event->trigger();
 
     // Completion.
-    $completion = new completion_info($course);//var_dump($completion);exit;
+    $completion = new completion_info($course);
     $completion->set_module_viewed($cm);
 }
 
@@ -234,8 +240,8 @@ function cma_played($cma, $course, $cm, $context) {
     $event->trigger();
 
     // Completion.
-    //$completion = new completion_info($course);
-    //$completion->set_module_viewed($cm);
+    $completion = new completion_info($course);
+    $completion->set_module_viewed($cm);
 }
 
 /**
@@ -267,7 +273,6 @@ function mod_cma_core_calendar_provide_event_action(calendar_event $event,
     $cm = get_fast_modinfo($event->courseid)->instances['cma'][$event->instance];
 
     $completion = new \completion_info($cm->get_course());
-
     $completiondata = $completion->get_data($cm, false);
 
     if ($completiondata->completionstate != COMPLETION_INCOMPLETE) {
@@ -283,28 +288,28 @@ function mod_cma_core_calendar_provide_event_action(calendar_event $event,
 }
 
     function cma_get_completion_state($course,$cm,$userid,$type) {
-     global $CFG,$DB;
+        global $DB;
 
-     // Get cma details
-     $cma = $DB->get_record('cma', array('id' => $cm->instance), '*', MUST_EXIST);
+        // Get cma details.
+        $cma = $DB->get_record('cma', array('id' => $cm->instance), '*', MUST_EXIST);
 
-     // If completion option is enabled, evaluate it and return true/false
-     if($cma->completion) {
-         $count = $DB->get_field_sql("
- SELECT
-     COUNT(1)
- FROM
-     {cma_points} cp
- WHERE
-     cp.userid=:userid",
-             array('userid'=>$userid));
-         if ($count >= 1) {
-            return true;
-         } else {
-            return false;
-         }
-     } else {
-         // Completion option is not enabled so just return $type
+        // If completion option is enabled, evaluate it and return true/false.
+        if($cma->completion) {
+            $count = $DB->get_field_sql("
+                                         SELECT
+                                             COUNT(1)
+                                         FROM
+                                             {cma_points} cp
+                                         WHERE
+                                             cp.userid=:userid",
+                                                     array('userid'=>$userid));
+             if ($count >= 1) {
+                return true;
+             } else {
+                return false;
+             }
+        } else {
+         // Completion option is not enabled so just return $type.
          return $type;
      }
  }

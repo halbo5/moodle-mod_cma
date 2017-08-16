@@ -61,15 +61,14 @@
                         <tr><td>{{#str}}conceptualisationabstraite, mod_cma{{/str}}</td><td>{{ca}}</td></tr>
                         <tr><td>{{#str}}experimentationactive, mod_cma{{/str}}</td><td>{{ea}}</td></tr>
                         </table>
-                        </p>
                      </div>
                 </div>
                 <div class="card">
                     <h2 class="card-header">{{#str}}profilapprentissage, mod_cma{{/str}}</h2>
                     <div class="card-block">
                         <p class="card-text">{{#str}}profildesc, mod_cma{{/str}}.</p>
-                        <div class="alert alert-success"><p class="card-text">{{#str}}yourprofile, mod_cma{{/str}} : <a href="#" data_role="button" id="btn_profil" data-toggle="modal" data-target="#{{typekey}}modal">{{type}}</a>.</p></div>
-                        <p class="card-text">{{#str}}allprofiles, mod_cma{{/str}} : <a href="#" data_role="button" id="btn_profil" data-toggle="modal" data-target="#accomodateurmodal">{{#str}}accomodateur, mod_cma{{/str}}</a> - <a href="#" data_role="button" id="btn_profil" data-toggle="modal" data-target="#assimilateurmodal">{{#str}}assimilateur, mod_cma{{/str}}</a> - <a href="#" data_role="button" id="btn_profil" data-toggle="modal" data-target="#divergentmodal">{{#str}}divergent, mod_cma{{/str}}</a> - <a href="#" data_role="button" id="btn_profil" data-toggle="modal" data-target="#convergentmodal">{{#str}}convergent, mod_cma{{/str}}</a>
+                        <div class="alert alert-success"><p class="card-text">{{#str}}yourprofile, mod_cma{{/str}} : <a href="#" id="btn_profil" data-toggle="modal" data-target="#{{typekey}}modal">{{type}}</a>.</p></div>
+                        <p class="card-text">{{#str}}allprofiles, mod_cma{{/str}} : <a href="#" data-toggle="modal" data-target="#accomodateurmodal">{{#str}}accomodateur, mod_cma{{/str}}</a> - <a href="#" data-toggle="modal" data-target="#assimilateurmodal">{{#str}}assimilateur, mod_cma{{/str}}</a> - <a href="#" data-toggle="modal" data-target="#divergentmodal">{{#str}}divergent, mod_cma{{/str}}</a> - <a href="#" data-toggle="modal" data-target="#convergentmodal">{{#str}}convergent, mod_cma{{/str}}</a>
                         </p>
                     </div>
                 </div>
@@ -103,7 +102,7 @@
 </div>
 
 <!-- Modal : accomodateur -->
-<div class="modal fade" id="accomodateurmodal" tabindex="-1" role="dialog" aria-labelledby="accomodateur">
+<div class="modal fade" id="accomodateurmodal" tabindex="-1" role="dialog" aria-labelledby="accomodateurlabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -118,7 +117,7 @@
 </div>
 
 <!-- Modal : divergent -->
-<div class="modal fade" id="divergentmodal" tabindex="-1" role="dialog" aria-labelledby="divergent">
+<div class="modal fade" id="divergentmodal" tabindex="-1" role="dialog" aria-labelledby="divergentlabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -133,7 +132,7 @@
 </div>
 
 <!-- Modal : assimilateur -->
-<div class="modal fade" id="assimilateurmodal" tabindex="-1" role="dialog" aria-labelledby="assimilateur">
+<div class="modal fade" id="assimilateurmodal" tabindex="-1" role="dialog" aria-labelledby="assimilateurlabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -148,7 +147,7 @@
 </div>
 
 <!-- Modal : convergent -->
-<div class="modal fade" id="convergentmodal" tabindex="-1" role="dialog" aria-labelledby="convergent">
+<div class="modal fade" id="convergentmodal" tabindex="-1" role="dialog" aria-labelledby="convergentlabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -163,7 +162,7 @@
 </div>
 
 <!-- Modal : explications -->
-<div class="modal fade" id="explicationsmodal" tabindex="-1" role="dialog" aria-labelledby="explications">
+<div class="modal fade" id="explicationsmodal" tabindex="-1" role="dialog" aria-labelledby="explicationslabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -178,7 +177,7 @@
 </div>
 
 <!-- Modal : about -->
-<div class="modal fade" id="aboutmodal" tabindex="-1" role="dialog" aria-labelledby="about">
+<div class="modal fade" id="aboutmodal" tabindex="-1" role="dialog" aria-labelledby="aboutlabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

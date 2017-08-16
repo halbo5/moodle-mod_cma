@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -137,7 +136,7 @@ $string['titlecourseaverage'] = 'Vos scores comparés à ceux de ce cours';
 $string['titlealltypes'] = 'Les types de profils de tous les cours';
 $string['titlecoursetypes'] = 'Les types de profils de ce cours';
 $string['explications'] = 'Explications';
-$string['explicationsdesc'] ="<p>L'objectif de ce test est de décrire votre manière d'apprendre. Certains choix de mot pour décrire votre manière d'apprendre peuvent sembler difficile, mais gardez bien à l'esprit qu'il ne s'agit pas d'une évaluation.
+$string['explicationsdesc'] = "<p>L'objectif de ce test est de décrire votre manière d'apprendre. Certains choix de mot pour décrire votre manière d'apprendre peuvent sembler difficile, mais gardez bien à l'esprit qu'il ne s'agit pas d'une évaluation.
             Il n'y a pas de réponse juste ou fausse. Le test CMA (Caractéristiques du Mode d'Apprentissage) mesure votre orientation relative aux quatres formes d'apprentissage que sont l'expérience concrète, l'observation réfléchie, la conceptualisation abstraite et l'expérimentation active.</p>
             <p>Vous obtenez des scores pour chacune de ces formes d'apprentissages. Vous verrez alors quelles sont vos manières d'apprendre dominantes. Mais personne n'apprend d'une seule manière. Vous vous reconnaitrez peut-être dans
             plusieurs de ces formes d'apprentissage.</p>
@@ -159,5 +158,5 @@ $string['enregistrerreponses'] = "Enregistrer les réponses";
 $string['allerplusloin'] = "Pour aller plus loin";
 $string['voirresultats'] = "Voir les résultats";
 $string['recommencer'] = "Recommencer le test";
-$string['eventcmatestplayed'] ="Test CMA effectué";
+$string['eventcmatestplayed'] = "Test CMA effectué";
 $string['completionplayed'] = "Un test CMA a été effectué";

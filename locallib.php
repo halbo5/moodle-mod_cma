@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -34,24 +33,24 @@ defined('MOODLE_INTERNAL') || die;
 
 function cma_calc_ls($data) {
     $ls = new StdClass();
-    $ls->ec = $data->word5+$data->word9+$data->word13+$data->word17+$data->word25+$data->word29;
-    $ls->ca = $data->word7+$data->word11+$data->word15+$data->word19+$data->word31+$data->word35;
-    $ls->ea = $data->word4+$data->word12+$data->word24+$data->word28+$data->word32+$data->word36;
-    $ls->or = $data->word2+$data->word10+$data->word22+$data->word26+$data->word30+$data->word34;
+    $ls->ec = $data->word5 + $data->word9 + $data->word13 + $data->word17 + $data->word25 + $data->word29;
+    $ls->ca = $data->word7 + $data->word11 + $data->word15 + $data->word19 + $data->word31 + $data->word35;
+    $ls->ea = $data->word4 + $data->word12 + $data->word24 + $data->word28 + $data->word32 + $data->word36;
+    $ls->or = $data->word2 + $data->word10 + $data->word22 + $data->word26 + $data->word30 + $data->word34;
 
-    $camoinsec=$ls->ca - $ls->ec;
-    $eamoinsor=$ls->ea - $ls->or;
+    $camoinsec = $ls->ca - $ls->ec;
+    $eamoinsor = $ls->ea - $ls->or;
 
-    if ($camoinsec >= 3 && $eamoinsor >=3) {
+    if ($camoinsec >= 3 && $eamoinsor >= 3) {
         $ls->type = "convergent";
     }
-   if ($camoinsec >= 3 && $eamoinsor <=2) {
+    if ($camoinsec >= 3 && $eamoinsor <= 2) {
         $ls->type = "assimilateur";
     }
-       if ($camoinsec <= 3 && $eamoinsor <=2) {
+    if ($camoinsec <= 3 && $eamoinsor <= 2) {
         $ls->type = "divergent";
     }
-       if ($camoinsec <= 3 && $eamoinsor >=3) {
+    if ($camoinsec <= 3 && $eamoinsor >= 3) {
         $ls->type = "accomodateur";
     }
     return $ls;
@@ -66,7 +65,7 @@ function cma_get_users() {
     $courseid = $PAGE->course->id;
     $role = $DB->get_record('role', array('shortname' => 'student'));
     $context = context_course::instance($courseid);
-    $users = get_role_users($role->id, $context,false, '', '', false);
+    $users = get_role_users($role->id, $context, false, '', '', false);
     return $users;
 }
 
