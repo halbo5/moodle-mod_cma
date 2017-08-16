@@ -295,7 +295,7 @@ function cma_get_completion_state($course, $cm, $userid, $type) {
     $cma = $DB->get_record('cma', array('id' => $cm->instance), '*', MUST_EXIST);
 
     // If completion option is enabled, evaluate it and return true/false.
-    if($cma->completion) {
+    if ($cma->completion) {
         $count = $DB->get_field_sql("
                                      SELECT
                                          COUNT(1)
@@ -306,12 +306,12 @@ function cma_get_completion_state($course, $cm, $userid, $type) {
                                                  array('userid' => $userid));
         if ($count >= 1) {
             return true;
-         } else {
+        } else {
             return false;
-         }
+        }
     } else {
-     // Completion option is not enabled so just return $type.
-     return $type;
+        // Completion option is not enabled so just return $type.
+        return $type;
     }
 }
 
