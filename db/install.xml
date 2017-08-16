@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/cma/db" VERSION="20170807" COMMENT="XMLDB file for Moodle mod/cma"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="cma" COMMENT="Activity CMA table">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="course id"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="name of the CMA module in the course"/>
+        <FIELD NAME="intro" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="previous" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Shall we look for previous results in other courses"/>
+        <FIELD NAME="timeopen" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Start time for the test"/>
+        <FIELD NAME="timeclose" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="When to close the test"/>
+        <FIELD NAME="activity" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Active next activity for each learning style ?"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="cma_points" COMMENT="Points for calculating CMA learning type.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="cmaid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="CMA activity id"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="the user that made the test"/>
+        <FIELD NAME="word1" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 1"/>
+        <FIELD NAME="word2" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 2"/>
+        <FIELD NAME="word3" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 3"/>
+        <FIELD NAME="word4" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 4"/>
+        <FIELD NAME="word5" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 5"/>
+        <FIELD NAME="word6" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 6"/>
+        <FIELD NAME="word7" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 7"/>
+        <FIELD NAME="word8" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 8"/>
+        <FIELD NAME="word9" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 9"/>
+        <FIELD NAME="word10" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 10"/>
+        <FIELD NAME="word11" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 11"/>
+        <FIELD NAME="word12" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 12"/>
+        <FIELD NAME="word13" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 13"/>
+        <FIELD NAME="word14" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 14"/>
+        <FIELD NAME="word15" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 15"/>
+        <FIELD NAME="word16" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 16"/>
+        <FIELD NAME="word17" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 17"/>
+        <FIELD NAME="word18" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 18"/>
+        <FIELD NAME="word19" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 19"/>
+        <FIELD NAME="word20" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 20"/>
+        <FIELD NAME="word21" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 21"/>
+        <FIELD NAME="word22" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 22"/>
+        <FIELD NAME="word23" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 23"/>
+        <FIELD NAME="word24" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 24"/>
+        <FIELD NAME="word25" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 25"/>
+        <FIELD NAME="word26" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 26"/>
+        <FIELD NAME="word27" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 27"/>
+        <FIELD NAME="word28" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 28"/>
+        <FIELD NAME="word29" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 29"/>
+        <FIELD NAME="word30" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 30"/>
+        <FIELD NAME="word31" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 31"/>
+        <FIELD NAME="word32" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 32"/>
+        <FIELD NAME="word33" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 33"/>
+        <FIELD NAME="word34" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 34"/>
+        <FIELD NAME="word35" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 35"/>
+        <FIELD NAME="word36" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="points for word 36"/>
+        <FIELD NAME="ec" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for concrete experience"/>
+        <FIELD NAME="ca" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for conceptualisation abstraite"/>
+        <FIELD NAME="ea" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for active experiments"/>
+        <FIELD NAME="or" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for observation réfléchie"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="type of the learning style"/>
+        <FIELD NAME="activitycon" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="activity for the convergent"/>
+        <FIELD NAME="activitydiv" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Activity for the divergent"/>
+        <FIELD NAME="activityass" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Activity for the assimilateur"/>
+        <FIELD NAME="activityacc" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="activity for the accomodateur"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="cmaid" TYPE="foreign" FIELDS="cmaid" REFTABLE="cma" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

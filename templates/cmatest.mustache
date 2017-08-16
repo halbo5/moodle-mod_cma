@@ -1,0 +1,186 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_cma/test
+
+    Classes required for JS:
+    * None
+
+    Data attibutes required for JS:
+    * None
+
+    Context variables required for this template:
+    * scaleid
+    * fields
+    * fields.value
+    * rows
+    * row
+    * row.validated
+
+    Example context (json):
+    {
+        "scaleid": 3,
+        "fields": [
+            { "value": "something" }
+        ],
+        "rows" : [
+            {"row": [
+                {"validated": "lp_success"}
+            ]}
+        ]
+    }
+}}
+<div class="row">
+    <div class="col-md-6">
+        <div data-role="page" id="intro" class="cmapage">
+            <div data-role="content">
+            <div class="card">
+                <h2 class="card-header">{{#str}}maniere, mod_cma{{/str}}</h2>
+                <div class="card-block">
+                <p class="card-text">{{#str}}consigne, mod_cma{{/str}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        {{#pages}}
+        <div data-role="page" id="cmapage{{pagenum}}" class="page">
+            <div class="card">
+                <h2 class='card-header'>{{#str}}serie, mod_cma{{/str}} {{pagenum}}</h1>
+            <div class="card-block">
+                <p class="cma-text">{{#str}}cliquez, mod_cma{{/str}} <span id="affecter{{pagenum}}">4</span> {{#str}}point, mod_cma{{/str}}<span id="pluriel{{pagenum}}">{{#str}}plural, mod_cma{{/str}}</span></p>
+                <div id="ligne1" class="row">
+                <div class="col-md-1"></div><div id="cmamot{{idmot1}}" class="col-md-10 mot"><button class="btn btn-success btn-lg w-75" type=button">{{mot1}} <span class="badge" id="cmapoint{{idmot1}}" data-role="points"></span></button></div><div class="col-md-1"></div>
+                </div>
+                <div class="spacer">&nbsp;</div>
+                <div id="ligne2" class="row">
+                <div class="col-md-1"></div><div id="cmamot{{idmot2}}" class="col-md-10 mot"><button class="btn btn-success btn-lg w-75" type=button">{{mot2}} <span class="badge" id="cmapoint{{idmot2}}" data-role="points"></span></button></div><div class="col-md-1"></div>
+                </div>
+                <div class="spacer">&nbsp;</div>
+                <div id="ligne3" class="row">
+                <div class="col-md-1"></div><div id="cmamot{{idmot3}}" class="col-md-10 mot"><button class="btn btn-success btn-lg w-75" type=button">{{mot3}} <span class="badge" id="cmapoint{{idmot3}}" data-role="points"></span></button></div><div class="col-md-1"></div>
+                </div>
+                <div class="spacer">&nbsp;</div>
+                <div id="ligne4" class="row">
+                <div class="col-md-1"></div><div id="cmamot{{idmot4}}" class="col-md-10 mot"><button class="btn btn-success btn-lg w-75" type=button">{{mot4}} <span class="badge" id="cmapoint{{idmot4}}" data-role="points"></span></button></div><div class="col-md-1"></div>
+                </div>
+            </div>
+            <p class="spacer"></p>
+            <div class="row">
+            <div class="col-md-1"></div><div class="col-md-10">
+            <div data-role="footer" class="cmafooter alert alert-success w-75">
+                <a href="#cmapage{{pagesuiv}}" data-role="continue" class="btn btn-primary">{{#str}}continuer, mod_cma{{/str}}</a>
+            </div></div>
+            <div class="col-md-1"></div>
+            </div>
+        </div>
+        </div>
+        {{/pages}}
+        <div data-role="page" id="cmapage10" class="page">
+            <div data-role="header">
+                <h1>{{#str}}enregistrerreponses, mod_cma{{/str}}</h1>
+            </div>
+            <div data-role="content">
+                <form action="{{actionurl}}" method="post">
+                    <input type="hidden" name="word1" value="" />
+                    <input type="hidden" name="word2" value="" />
+                    <input type="hidden" name="word3" value="" />
+                    <input type="hidden" name="word4" value="" />
+                    <input type="hidden" name="word5" value="" />
+                    <input type="hidden" name="word6" value="" />
+                    <input type="hidden" name="word7" value="" />
+                    <input type="hidden" name="word8" value="" />
+                    <input type="hidden" name="word9" value="" />
+                    <input type="hidden" name="word10" value="" />
+                    <input type="hidden" name="word11" value="" />
+                    <input type="hidden" name="word12" value="" />
+                    <input type="hidden" name="word13" value="" />
+                    <input type="hidden" name="word14" value="" />
+                    <input type="hidden" name="word15" value="" />
+                    <input type="hidden" name="word16" value="" />
+                    <input type="hidden" name="word17" value="" />
+                    <input type="hidden" name="word18" value="" />
+                    <input type="hidden" name="word19" value="" />
+                    <input type="hidden" name="word20" value="" />
+                    <input type="hidden" name="word21" value="" />
+                    <input type="hidden" name="word22" value="" />
+                    <input type="hidden" name="word23" value="" />
+                    <input type="hidden" name="word24" value="" />
+                    <input type="hidden" name="word25" value="" />
+                    <input type="hidden" name="word26" value="" />
+                    <input type="hidden" name="word27" value="" />
+                    <input type="hidden" name="word28" value="" />
+                    <input type="hidden" name="word29" value="" />
+                    <input type="hidden" name="word30" value="" />
+                    <input type="hidden" name="word31" value="" />
+                    <input type="hidden" name="word32" value="" />
+                    <input type="hidden" name="word33" value="" />
+                    <input type="hidden" name="word34" value="" />
+                    <input type="hidden" name="word35" value="" />
+                    <input type="hidden" name="word36" value="" />
+                    <input id="cmasave" type="submit" value="{{#str}}go{{/str}}" class="btn btn-primary" />
+                </form>
+            </div>
+    </div>
+</div>
+</div>
+<div class="row">
+            <div data-role="footer" class="cmafooter">
+            <div class="card text-white bg-info mb-3">
+                    <div class="card-block">
+                        <h4 class="card-title">{{#str}}allerplusloin, mod_cma{{/str}}</h4>
+                        <p class="card-text">
+                        <a href="{{& resulturl}}" data-role="button" class="btn btn-primary">{{#str}}voirresultats, mod_cma{{/str}}</a>
+                    <a href="#cmafooter2" data-role="button" class="btn btn-primary" data-toggle="modal" data-target="#explicationsmodal">{{#str}}explications, mod_cma{{/str}}</a>
+                    <a href="#cmafooter3" data-role="button" class="btn btn-primary" data-toggle="modal" data-target="#aboutmodal">{{#str}}about, mod_cma{{/str}}</a></p>
+                    </div>
+            </div>
+            </div>
+</div>
+
+<!-- Modal : explications -->
+<div class="modal fade" id="explicationsmodal" tabindex="-1" role="dialog" aria-labelledby="explications">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="explicationslabel">{{#str}}explications, mod_cma{{/str}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{#str}}explicationsdesc, mod_cma{{/str}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal : about -->
+<div class="modal fade" id="aboutmodal" tabindex="-1" role="dialog" aria-labelledby="about">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="aboutlabel">{{#str}}about, mod_cma{{/str}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{#str}}aboutdesc, mod_cma{{/str}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
