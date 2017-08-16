@@ -42,7 +42,16 @@ class cmatest implements \renderable, \templatable {
         $words = $this->get_words();
         for ($p = 0; $p <= 8; $p++) {
             $i = $p + 1;
-            $data->pages[$p] = array('pagenum' => $i, 'pagesuiv' => $i + 1, 'mot1' => $words[$i * 4 - 3], 'mot2' => $words[$i * 4 - 2], 'mot3' => $words[$i * 4 - 1], 'mot4' => $words[$i * 4], 'idmot1' => $i * 4 - 3, 'idmot2' => $i * 4 - 2, 'idmot3' => $i * 4 - 1, 'idmot4' => $i * 4);
+            $data->pages[$p] = array('pagenum' => $i,
+                                                        'pagesuiv' => $i + 1,
+                                                        'mot1' => $words[$i * 4 - 3],
+                                                        'mot2' => $words[$i * 4 - 2],
+                                                        'mot3' => $words[$i * 4 - 1],
+                                                        'mot4' => $words[$i * 4],
+                                                        'idmot1' => $i * 4 - 3,
+                                                        'idmot2' => $i * 4 - 2,
+                                                        'idmot3' => $i * 4 - 1,
+                                                        'idmot4' => $i * 4);
         }
         $actionurl = new \moodle_url('/mod/cma/view.php', array('id' => $PAGE->cm->id));
         $data->actionurl = $actionurl;

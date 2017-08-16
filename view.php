@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -37,7 +36,7 @@ $c       = optional_param('c', 0, PARAM_INT);  // CMA instance ID.
 $t        = optional_param('test', 0, PARAM_INT); // Faut-il rejouer le test ?
 
 if ($c) {
-    if (!$cma = $DB->get_record('cma', array('id'=>$c))) {
+    if (!$cma = $DB->get_record('cma', array('id' => $c))) {
         print_error('invalidaccessparameter');
     }
     $cm = get_coursemodule_from_instance('cma', $cma->id, $cma->course, false, MUST_EXIST);
@@ -46,10 +45,10 @@ if ($c) {
     if (!$cm = get_coursemodule_from_id('cma', $id)) {
         print_error('invalidcoursemodule');
     }
-    $cma = $DB->get_record('cma', array('id'=>$cm->instance), '*', MUST_EXIST);
+    $cma = $DB->get_record('cma', array('id' => $cm->instance), '*', MUST_EXIST);
 }
 
-$course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
+$course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
 require_capability('mod/cma:view', $context);
@@ -62,7 +61,7 @@ if ($data = data_submitted()) {
     $dataobject->userid = $USER->id;
     $i = 1;
     foreach ($data as $key => $value) {
-            $word='word'.$i;
+            $word = 'word'.$i;
             $dataobject->$word = $value;
             $i++;
     }
@@ -72,7 +71,7 @@ if ($data = data_submitted()) {
     $dataobject->ea = $ls->ea;
     $dataobject->obr = $ls->or;
     $dataobject->type = $ls->type;
-    $DB->insert_record('cma_points', $dataobject, $returnid=true);
+    $DB->insert_record('cma_points', $dataobject, $returnid = true);
     cma_played($cma, $course, $cm, $context);
 }
 
@@ -98,7 +97,7 @@ cma_view($cma, $course, $cm, $context);
 $PAGE->set_url('/mod/cma/view.php', array('id' => $cm->id));
 $PAGE->set_title($course->shortname.': '.$cma->name);
 $PAGE->set_heading($course->fullname);
-$PAGE->requires->js_call_amd('mod_cma/apprentissage','init');
+$PAGE->requires->js_call_amd('mod_cma/apprentissage', 'init');
 
 $output = $PAGE->get_renderer('mod_cma');
 

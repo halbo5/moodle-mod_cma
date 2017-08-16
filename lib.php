@@ -93,7 +93,8 @@ function cma_supports($feature) {
         case FEATURE_SHOW_DESCRIPTION:
             return true;
 
-        default: return null;
+        default:
+            return null;
     }
 }
 
@@ -287,32 +288,32 @@ function mod_cma_core_calendar_provide_event_action(calendar_event $event,
     );
 }
 
-    function cma_get_completion_state($course,$cm,$userid,$type) {
-        global $DB;
+function cma_get_completion_state($course, $cm, $userid, $type) {
+    global $DB;
 
-        // Get cma details.
-        $cma = $DB->get_record('cma', array('id' => $cm->instance), '*', MUST_EXIST);
+    // Get cma details.
+    $cma = $DB->get_record('cma', array('id' => $cm->instance), '*', MUST_EXIST);
 
-        // If completion option is enabled, evaluate it and return true/false.
-        if($cma->completion) {
-            $count = $DB->get_field_sql("
-                                         SELECT
-                                             COUNT(1)
-                                         FROM
-                                             {cma_points} cp
-                                         WHERE
-                                             cp.userid=:userid",
-                                                     array('userid'=>$userid));
-             if ($count >= 1) {
-                return true;
-             } else {
-                return false;
-             }
-        } else {
-         // Completion option is not enabled so just return $type.
-         return $type;
-     }
- }
+    // If completion option is enabled, evaluate it and return true/false.
+    if($cma->completion) {
+        $count = $DB->get_field_sql("
+                                     SELECT
+                                         COUNT(1)
+                                     FROM
+                                         {cma_points} cp
+                                     WHERE
+                                         cp.userid=:userid",
+                                                 array('userid' => $userid));
+        if ($count >= 1) {
+            return true;
+         } else {
+            return false;
+         }
+    } else {
+     // Completion option is not enabled so just return $type.
+     return $type;
+    }
+}
 
 function mod_cma_get_completion_active_rule_descriptions($cm) {
     // Values will be present in cm_info, and we assume these are up to date.
