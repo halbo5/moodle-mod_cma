@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/cma/db" VERSION="20170807" COMMENT="XMLDB file for Moodle mod/cma"
+<XMLDB PATH="mod/cma/db" VERSION="20170817" COMMENT="XMLDB file for Moodle mod/cma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
@@ -15,6 +15,11 @@
         <FIELD NAME="timeopen" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Start time for the test"/>
         <FIELD NAME="timeclose" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="When to close the test"/>
         <FIELD NAME="activity" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Active next activity for each learning style ?"/>
+        <FIELD NAME="completion" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="activitycon" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="activitydiv" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="activityass" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="activityacc" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>
@@ -69,12 +74,8 @@
         <FIELD NAME="ec" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for concrete experience"/>
         <FIELD NAME="ca" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for conceptualisation abstraite"/>
         <FIELD NAME="ea" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for active experiments"/>
-        <FIELD NAME="or" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for observation réfléchie"/>
-        <FIELD NAME="type" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="type of the learning style"/>
-        <FIELD NAME="activitycon" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="activity for the convergent"/>
-        <FIELD NAME="activitydiv" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Activity for the divergent"/>
-        <FIELD NAME="activityass" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Activity for the assimilateur"/>
-        <FIELD NAME="activityacc" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="activity for the accomodateur"/>
+        <FIELD NAME="obr" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="total points for observation réfléchie"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="20" NOTNULL="false" SEQUENCE="false" COMMENT="type of the learning style"/>
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
