@@ -242,7 +242,9 @@ function cma_played($cma, $course, $cm, $context) {
 
     // Completion.
     $completion = new completion_info($course);
-    $completion->set_module_viewed($cm);
+    if($completion->is_enabled($cm) && $cma->cmacompletion) {
+        $completion->update_state($cm,COMPLETION_COMPLETE);
+    }
 }
 
 /**
@@ -295,7 +297,7 @@ function cma_get_completion_state($course, $cm, $userid, $type) {
     $cma = $DB->get_record('cma', array('id' => $cm->instance), '*', MUST_EXIST);
 
     // If completion option is enabled, evaluate it and return true/false.
-    if ($cma->completion) {
+    if ($cma->cmacompletion) {
         $count = $DB->get_field_sql("
                                      SELECT
                                          COUNT(1)

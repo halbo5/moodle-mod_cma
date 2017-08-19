@@ -122,4 +122,4 @@ $string['allerplusloin'] = "Know more";
 $string['voirresultats'] = "See results";
 $string['recommencer'] = "Start test again";
 $string['eventcmatestplayed'] = "CMA test played";
-$string['completionplayed'] = "CMA test has been played";
+$string['completionplayed'] = "Do a CMA test";

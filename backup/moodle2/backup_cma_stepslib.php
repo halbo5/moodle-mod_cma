@@ -39,7 +39,7 @@ class backup_cma_activity_structure_step extends backup_activity_structure_step 
         // Define each element separated
         $cma = new backup_nested_element('cma', array('id'), array(
             'name', 'intro', 'introformat', 'previous',
-            'timeopen', 'timeclose', 'activity', 'completion', 'activitycon',
+            'timeopen', 'timeclose', 'activity', 'cmacompletion', 'activitycon',
             'activitydiv', 'activityass', 'activityacc', 'timecreated', 'timemodified'));
 
         $points = new backup_nested_element('points');

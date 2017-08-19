@@ -83,6 +83,11 @@ if ($t != 1) {
     if ($result = $DB->get_records('cma_points', $conditions, $sort, $fields)) {
         $key = key($result);
         $cmaresult = new \mod_cma\output\cmaresult($result[$key]);
+        // Completion.
+        $completion = new completion_info($course);
+        if($completion->is_enabled($cm) && $cma->cmacompletion) {
+            $completion->update_state($cm,COMPLETION_COMPLETE);
+        }
     } else {
         $cmatest = new \mod_cma\output\cmatest();
         $t = 1;

@@ -66,9 +66,9 @@ class mod_cma_mod_form extends moodleform_mod {
     public function add_completion_rules() {
 
         $mform = $this->_form;
-        $mform->createElement('checkbox', 'completionplayedenabled', '', get_string('completionplayed', 'mod_cma'));
-        $mform->setDefault('completionplayedenabled', 1);
-        return array('completionplayedenabled');
+        $mform->addElement('checkbox', 'cmacompletion', '', get_string('completionplayed', 'mod_cma'));
+        $mform->setDefault('cmacompletion', 1);
+        return array('cmacompletion');
     }
 
     /**
@@ -78,11 +78,7 @@ class mod_cma_mod_form extends moodleform_mod {
      * @return bool True if one or more rules is enabled, false if none are.
      */
     public function completion_rule_enabled($data) {
-        return !empty($data['completionplayedenabled']);
-    }
-
-    public function data_preprocessing(&$defaultvalues) {
-        $defaultvalues['completionplayedenabled'] = 0;
+        return !empty($data['cmacompletion']);
     }
 
 }

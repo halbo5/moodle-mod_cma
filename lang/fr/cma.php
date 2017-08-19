@@ -159,4 +159,4 @@ $string['allerplusloin'] = "Pour aller plus loin";
 $string['voirresultats'] = "Voir les résultats";
 $string['recommencer'] = "Recommencer le test";
 $string['eventcmatestplayed'] = "Test CMA effectué";
-$string['completionplayed'] = "Un test CMA a été effectué";
+$string['completionplayed'] = "Effectuer un test CMA";
